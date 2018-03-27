@@ -88,8 +88,12 @@ class ExportCommand extends Command
         curl_setopt($ch, CURLOPT_USERPWD, "$usr:$pass");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $data = curl_exec($ch);
+        $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $err = curl_error($ch);
         curl_close($ch);
+        if (200 !== $httpStatus) {
+            throw new \Exception('You do not have an access to svn repository');
+        }
         if (!empty($err)) {
             throw new \Exception($err);
         }
