@@ -1,0 +1,12 @@
+{
+    "require": {
+        "symfony/console": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {"ConfigManager\\": "src/"}
+    },
+    "scripts": {
+        "post-update-cmd": "php build.php",
+        "post-install-cmd": "php build.php"
+    }
+}
