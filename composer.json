@@ -1,5 +1,8 @@
 {
     "require": {
+        "php": ">=7.0.0",
+        "ext-curl": "*",
+        "ext-phar": "*",
         "symfony/console": "^4.0"
     },
     "autoload": {
